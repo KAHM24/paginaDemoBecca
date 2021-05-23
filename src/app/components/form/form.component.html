@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet">
+
+
+<form>
+  <div class="form-group">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <select class="form-control" [(ngModel)]="selectedPais.Id" (change)="onSelectProfesion($event.target.value)">
+            <option *ngFor="let profesion of profesiones" value={{profesion.Id}}>
+              {{profesion.Descripcion}}
+            </option>
+          </select>
+        </div>
+        <div class="col-sm">
+          <select class="form-control" [(ngModel)]="selectedPais.Id" (change)="onSelectEstadoPais($event.target.value)">
+            <option *ngFor="let pais of paises2" value={{pais.Codigo}}>
+              {{pais.Nombre}}
+            </option>
+          </select>
+        </div>
+        <div class="col-sm">
+          <select class="form-control">
+            <option *ngFor=" let ciudad of ciudad" value={{ciudad.PaisCodigo}}>
+              {{ciudad.Nombre}}
+            </option>
+          </select>
+        </div>
+        <!-- {{ profesionales | json}} -->
+      </div>
+    </div>
+  </div>
+</form>
+
+<hr class="mb-5"/>
+<!--Grid row-->
+<div class="row text-center" >
+
+  <!--Grid column-->
+  <div class="col-md-4 mb-3" *ngFor="let profe of profesionales">    
+      <p>
+    <img class="rounded-circle" style=" width: 80px; height: 80px;" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+    data-holder-rendered="true"
+    align="left"><div>
+       <h4 class="name">{{profe.PrimerNombre}} {{profe.PrimerApellido}}</h4> 
+       <br> {{profe.Profesion}}<br> Especialidades:<br> {{profe.Especialidad}}
+       &nbsp;
+       <button class="btn btn-success btn-circle btn-lg" style="position : absolute; bottom : 100;">         
+       <i class="fa fa-user-o" aria-hidden="true"></i></button>
+    </div>
+     
+      </p>
+     
+  </div>
+</div>
+
+  
