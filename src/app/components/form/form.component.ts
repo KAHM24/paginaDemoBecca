@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
   public ciudad : ListaEstadosPaises[] = [];
   public profesionales : ListaProfecionales[] = [];
   public profesiones : ListaProfesiones[] = [];
-  public idPais : number = 0;
+  public idPais : String = "0";
   public idProfesion : number = 0;
   public idprovincia : number = 0;
   //public profesion! : ListaProfecionales = {};
