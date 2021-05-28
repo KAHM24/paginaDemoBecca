@@ -13,25 +13,39 @@
     <div class="container">
       <div class="row">
         <div class="col-sm">
-          <select class="form-control" [(ngModel)]="selectedPais.Id" (change)="onSelectProfesion($event.target.value)">
-            <option *ngFor="let profesion of profesiones" value={{profesion.Id}}>
-              {{profesion.Descripcion}}
-            </option>
-          </select>
+          <div class="form-group">
+            <label for="pais">Profesión</label>
+            <select id="pais" class="form-control" [(ngModel)]="selectedPais.Id"
+              (change)="onSelectProfesion($event.target.value)">
+              <option *ngFor="let profesion of profesiones" value={{profesion.Id}}>
+                {{profesion.Descripcion}}
+              </option>
+            </select>
+          </div>
+
         </div>
         <div class="col-sm">
-          <select class="form-control" [(ngModel)]="selectedPais.Id" (change)="onSelectEstadoPais($event.target.value)">
-            <option *ngFor="let pais of paises2" value={{pais.Codigo}}>
-              {{pais.Nombre}}
-            </option>
-          </select>
+          <div class="form-group">
+            <label for="pais">País</label>
+            <select class="form-control" [(ngModel)]="selectedPais.Id"
+              (change)="onSelectEstadoPais($event.target.value)">
+              <option *ngFor="let pais of paises2" value={{pais.Codigo}}>
+                {{pais.Nombre}}
+              </option>
+            </select>
+          </div>
+
         </div>
         <div class="col-sm">
-          <select class="form-control">
-            <option *ngFor=" let ciudad of ciudad" value={{ciudad.PaisCodigo}}>
-              {{ciudad.Nombre}}
-            </option>
-          </select>
+          <div class="form-group">
+            <label for="pais">Ciudad</label>
+            <select class="form-control">
+              <option *ngFor=" let ciudad of ciudad" value={{ciudad.PaisCodigo}}>
+                {{ciudad.Nombre}}
+              </option>
+            </select>
+          </div>
+
         </div>
         <!-- {{ profesionales | json}} -->
       </div>
@@ -39,29 +53,24 @@
   </div>
 </form>
 
-<hr class="mb-5"/>
+<hr class="mb-5" />
 <!--Grid row-->
-<div class="row text-center" >
+<div class="row text-center">
 
   <!--Grid column-->
-  <div class="col-md-4 mb-3" *ngFor="let profe of profesionales">    
-      <p>
-    <img class="rounded-circle" style=" width: 80px; height: 80px;" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
-    data-holder-rendered="true"
-    align="left"><div>
-       <h4 class="name">{{profe.PrimerNombre}} {{profe.PrimerApellido}}</h4> 
-       <br> {{profe.Profesion}}<br> Especialidades:<br> {{profe.Especialidad}}
-       &nbsp;
-       <button class="btn btn-success btn-circle btn-lg" style="position : absolute; bottom : 100;">         
-       <i class="fa fa-user-o" aria-hidden="true"></i></button>
-    </div>
-     
-      </p>
-     
+  <div class="col-md-4 mb-3" *ngFor="let profe of profesionales">
+      <img class="rounded-circle" style=" width: 80px; height: 80px;" alt="100x100" [src]="profe.Foto"
+        data-holder-rendered="true" align="left">
+      <div>
+        <h4 class="name">{{profe.PrimerNombre}} {{profe.PrimerApellido}}</h4>
+        <br> {{profe.Profesion}}<br> Especialidades:<br> {{profe.Especialidad}}
+        &nbsp;
+        <button class="btn btn-success btn-circle btn-lg" style="position : absolute; bottom : 100;">
+          <i class="fa fa-user-o" aria-hidden="true" (click)="openwindow(profe.Dominio)"></i></button>
+      </div>
   </div>
 </div>
 
-<div class="text-center"> 
-    <button class="btn-success"><a href="http://www.beccapp.beccasoftware.com/">Siguiente --></a></button>
-</div>
-  
+<!--<div class="text-center"> 
+    <button class="btn-success"><a href="http://www.beccapp.beccasoftware.com/">Siguiente</a></button>
+</div>-->

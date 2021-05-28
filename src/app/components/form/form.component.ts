@@ -3,6 +3,7 @@ import { PeticionEstadosPaises, PeticionPaises, PeticionProfecionales } from 'sr
 import { RestService } from 'src/app/rest.service';
 import {EstadosPaises, ListaEstadosPaises, ListaPaises, ListaProfecionales, ListaProfesiones} from '../../models/model.interface'
 import { DataService } from '../../services/data.service'
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-form',
@@ -11,6 +12,7 @@ import { DataService } from '../../services/data.service'
   providers:[DataService]
 })
 export class FormComponent implements OnInit {
+
 
   public selectedPais : ListaPaises = { Id : 0, Nombre: '', Lugar : 0, Codigo : '', Tipo: ''};
   public selectedProfecion : ListaProfecionales[] = [];
@@ -24,6 +26,7 @@ export class FormComponent implements OnInit {
   public idProfesion : number = 0;
   public idprovincia : number = 0;
   //public profesion! : ListaProfecionales = {};
+  location = "https://beccapp.beccasoftware.com/"
 
   constructor(private dataSvc : DataService, private RestService : RestService) { }
 
@@ -55,7 +58,7 @@ export class FormComponent implements OnInit {
     obj.PaisId = 0;
     obj.ProfesionId = idProfesion;
     obj.ProvinciaId = 0;
-    this.RestService.getProfecionales('http://51.75.55.74:8080/api/usuario/ObtenerPrefesionales', obj).subscribe(respuesta =>{
+    this.RestService.getProfecionales(environment.appUrlBase + '/usuario/ObtenerPrefesionales', obj).subscribe(respuesta =>{
       console.log(respuesta);
       (this.profesionales = respuesta)
   })
@@ -67,7 +70,7 @@ export class FormComponent implements OnInit {
     obj.PaisId = 0;
     obj.ProfesionId = 0;
     obj.ProvinciaId = 0;
-    var res = this.RestService.getPaises('http://51.75.55.74:8080/api/configuracion/ListarPaises', obj).subscribe(respuesta => {
+    var res = this.RestService.getPaises(environment.appUrlBase + '/configuracion/ListarPaises', obj).subscribe(respuesta => {
       (this.paises2 = respuesta)
     }) 
 
@@ -77,23 +80,27 @@ export class FormComponent implements OnInit {
   public loadEstatdos(codigo : string) {
     var obj = new PeticionEstadosPaises();
     obj.codigo = codigo
-    var res = this.RestService.getCiudades('http://51.75.55.74:8080/api/configuracion/ListarEstadosPaises/', obj).subscribe(respuesta => {
+    var res = this.RestService.getCiudades(environment.appUrlBase + '/configuracion/ListarEstadosPaises/', obj).subscribe(respuesta => {
       (this.ciudad = respuesta)
     }) 
 
   }
 
   public loadProfesiones() {
-    var res = this.RestService.getProfesiones('http://51.75.55.74:8080/api/usuario/ObtenerProfesiones').subscribe(respuesta => {
+    var res = this.RestService.getProfesiones(environment.appUrlBase + '/usuario/ObtenerProfesiones').subscribe(respuesta => {
       (this.profesiones = respuesta)
     }) 
 
   }
 
 
-//   datosParaEditar(result){
-//     this.data = new IdModelo(result.ID);
-// }
+  //   datosParaEditar(result){
+  //     this.data = new IdModelo(result.ID);
+  // }
+
+  openwindow(dominio:string) {
+    window.open(this.location + dominio);
+  }
 
 
 

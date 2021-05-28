@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  appUrlBase: 'https://beccapi.beccasoftware.com/api',
+  //appUrlBase: 'https://localhost:44393/api',
 };
 
 /*

@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class AppComponent implements AfterViewInit{
   title = 'paginaDemo';
 
-  readonly ROOT_URL = 'http://51.75.55.74:44393/api/configuracion/ListarPaises';
+  readonly ROOT_URL = 'https://beccapi.beccasoftware.com/api/configuracion/ListarPaises';
   //readonly ROOT_URL = 'https://jsonplaceholder.typicode.com/todos/';
 
 
