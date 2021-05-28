@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PeticionEstadosPaises, PeticionPaises, PeticionProfecionales } from 'src/app/peticionProfesionales';
 import { RestService } from 'src/app/rest.service';
 import {EstadosPaises, ListaEstadosPaises, ListaPaises, ListaProfecionales, ListaProfesiones} from '../../models/model.interface'
@@ -25,8 +25,13 @@ export class FormComponent implements OnInit {
   public idprovincia : number = 0;
   //public profesion! : ListaProfecionales = {};
 
+  @ViewChild('asTitulo') tituloEspecialidad!  : ElementRef;
+  @ViewChild('asEspecialidad') especialidad! : ElementRef;
+
+
   constructor(private dataSvc : DataService, private RestService : RestService) { }
 
+  
   ngOnInit(): void {
     console.log(this.dataSvc.getPaises)
     //this.paises = this.dataSvc.getPaises();
