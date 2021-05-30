@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 button[type="submit"] {
     background: #18a369;
     border: 0;
-    padding: 10px 24px;
+    padding: 8px 20px;
     color: #fff;
     transition: 0.4s;
     border-radius: 4px;
@@ -78,12 +78,12 @@ button [type="submit"]:hover {
 .button {
     background: #18a369;
     border: 0;
-    padding: 10px 24px;
+    padding: 8px 10px;
     color: #fff;
-    transition: 0.4s;
+    transition: 0.2s;
     border-radius: 4px;
     box-shadow: 4px 8px rgb(27, 54, 48);
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
   
   .button:hover {background-color: #4aad7f}

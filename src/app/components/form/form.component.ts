@@ -13,6 +13,7 @@ import { DataService } from '../../services/data.service'
 export class FormComponent implements OnInit {
 
   public selectedPais : ListaPaises = { Id : 0, Nombre: '', Lugar : 0, Codigo : '', Tipo: ''};
+  public selectedCiudad : ListaEstadosPaises = {Id :0, PaisCodigo : "", Nombre : ""};
   public selectedProfecion : ListaProfecionales[] = [];
   //public paises: ListaPaises[] = [];
   public paises: ListaPaises[] = [];
@@ -20,7 +21,7 @@ export class FormComponent implements OnInit {
   public ciudad : ListaEstadosPaises[] = [];
   public profesionales : ListaProfecionales[] = [];
   public profesiones : ListaProfesiones[] = [];
-  public idPais : String = "0";
+  public idPais : number = 0;
   public idProfesion : number = 0;
   public idprovincia : number = 0;
   //public profesion! : ListaProfecionales = {};
@@ -37,29 +38,44 @@ export class FormComponent implements OnInit {
     //this.paises = this.dataSvc.getPaises();
     this.loadProfesiones();
     this.loadPaises2();
-    this.loadProfecionales(0);
+    this.loadProfecionales();
     
   }
 
   onSelectEstadoPais(idP : string):void{
-    //console.log('Id->', id);
+    console.log('Id->', idP);
     //this.ciudad= this.dataSvc.getCiudades().filter(item => item.id == idP)
-    //this.idPais = idP;
+    var pais2 = this.paises2.filter(item => item.Codigo== idP)
+    console.log('Id->', pais2);
+    this.idPais = pais2[0].Id;
     this.loadEstatdos(idP)
     this.ciudad.filter(item => item.PaisCodigo == idP)
+    this.loadProfecionales();
+    this.profesionales.filter(item => item.ProfesionId == this.idProfesion && item.PaisId == this.idPais)
+  }
+
+  onSelectEstado(idP : number):void{
+    this.idprovincia = idP;
+    this.loadProfecionales()  
+    this.profesionales.filter(item => item.ProfesionId == this.idProfesion 
+      && item.PaisId == this.idPais
+      && item.ProvinciaId == this.idprovincia)
   }
 
   onSelectProfesion(idP : number):void{
     this.idProfesion = idP;
-    this.loadProfecionales(this.idProfesion)
+    this.loadProfecionales()
     this.profesionales.filter(item => item.ProfesionId == idP)
   }
 
-  public loadProfecionales(idProfesion: number){
+  onSelectUsuario(dominio : String){
+    window.location.href='http://www.beccapp.beccasoftware.com/'+dominio;
+  }
+  public loadProfecionales(){
     var obj = new PeticionProfecionales();
-    obj.PaisId = 0;
-    obj.ProfesionId = idProfesion;
-    obj.ProvinciaId = 0;
+    obj.PaisId = this.idPais;
+    obj.ProfesionId = this.idProfesion;
+    obj.ProvinciaId = this.idprovincia;
     this.RestService.getProfecionales('http://51.75.55.74:8080/api/usuario/ObtenerPrefesionales', obj).subscribe(respuesta =>{
       console.log(respuesta);
       (this.profesionales = respuesta)

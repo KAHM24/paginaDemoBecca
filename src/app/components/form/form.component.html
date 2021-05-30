@@ -26,13 +26,15 @@
             </option>
           </select>
         </div>
-        <div class="col-sm">
+        <!-- <button class="button">Buscar</button> -->
+        <div class="col-sm" [(ngModel)]="selectedCiudad.Id" (change)="onSelectEstado($event.target.value)">
           <select class="form-control">
-            <option *ngFor=" let ciudad of ciudad" value={{ciudad.PaisCodigo}}>
+            <option *ngFor=" let ciudad of ciudad" value={{ciudad.Id}}>
               {{ciudad.Nombre}}
             </option>
           </select>
         </div>
+        
         <!-- {{ profesionales | json}} -->
       </div>
     </div>
@@ -55,8 +57,12 @@
        <br> 
        <span #asEspecialidad id="especialidad">{{profe.Especialidad}}</span>
        &nbsp;
-       <button class="btn btn-success btn-circle btn-lg" style="position : absolute; bottom : 100;">         
-       <i class="fa fa-user-o" aria-hidden="true"></i></button>
+       
+       <button (click)="onSelectUsuario(profe.Dominio)" class="btn btn-success btn-circle btn-lg" style="position : absolute; bottom : 100;">
+        <!-- <a href="http://www.beccapp.beccasoftware.com/">  -->
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+        <!-- </a>          -->
+      </button>
     </div>
      
       </p>
@@ -64,7 +70,8 @@
   </div>
 </div>
 
-<div class="text-center"> 
-    <button class="btn-success"><a href="http://www.beccapp.beccasoftware.com/">Siguiente --></a></button>
-</div>
+<!-- <div class="text-center"> 
+     <button class="btn-success"><a href="http://www.beccapp.beccasoftware.com/">Siguiente </a></button>
+    <button class="button"><a href="http://www.beccapp.beccasoftware.com/">Siguiente</a></button>
+</div> -->
   

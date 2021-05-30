@@ -78,7 +78,7 @@ button [type="submit"]:hover {
 .button {
     background: #18a369;
     border: 0;
-    padding: 10px 24px;
+    padding: 8px 10px;
     color: #fff;
     transition: 0.4s;
     border-radius: 4px;
@@ -1320,7 +1320,7 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact .info {
-    border-top: 4px solid #5cb874;
+    border-top: 4px solid #18a369;
     border-bottom: 4px solid #394AE7;
     padding: 30px;
     background: #fff;
@@ -1388,7 +1388,7 @@ section {
 
 .contact .php-email-form {
     width: 100%;
-    border-top: 4px solid #5cb874;
+    border-top: 4px solid #18a369;
     border-bottom: 4px solid #394AE7;
     padding: 30px;
     background: #fff;
@@ -1683,7 +1683,7 @@ section {
 }
 
 #footer .social-links a:hover {
-    background: #449d5b;
+    background: #18a369;
     color: #fff;
     text-decoration: none;
 }
