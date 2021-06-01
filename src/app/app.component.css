@@ -32,7 +32,7 @@ a {
 }
 
 a:hover {
-    color: #18a369;
+    color: #089b78;
     text-decoration: none;
 }
 
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-    color: #18a369;
+    color: #089b78;
     font-weight: bold;
     font-family:  montserrat;
     font-size: 50px;
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button[type="submit"] {
-    background: #18a369;
+    background: #089b78;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -82,7 +82,7 @@ button [type="submit"]:hover {
 }
 
 .button {
-    background: #18a369;
+    background: #089b78;
     border: 0;
     padding: 8px 10px;
     color: #fff;
@@ -95,14 +95,14 @@ button [type="submit"]:hover {
   .button:hover {background-color: #4aad7f}
   
   .button:active {
-    background-color: #18a369;
+    background-color: #089b78;
     box-shadow: 2px 6px rgb(27, 54, 48);
     transform: translateY(1px);
   
   }
 
 select { 
-    background: #18a369;
+    background: #089b78;
     border-radius: 4px;
     color: #fff;
 }
@@ -116,12 +116,12 @@ select {
     font-size: 12px;
     line-height: 1.428571429;
     border-radius: 15px;
-    background: #18a369;
+    background: #089b78;
   }
   .btn-circle.btn-lg {
     width: 30px;
     height: 30px;
-    background: #18a369;
+    background: #089b78;
     font-size: 15px;
     border-radius: 25px;
   }
@@ -1326,7 +1326,7 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact .info {
-    border-top: 4px solid #18a369;
+    border-top: 4px solid #089b78;
     border-bottom: 4px solid #394AE7;
     padding: 30px;
     background: #fff;
@@ -1394,7 +1394,7 @@ section {
 
 .contact .php-email-form {
     width: 100%;
-    border-top: 4px solid #18a369;
+    border-top: 4px solid #089b78;
     border-bottom: 4px solid #394AE7;
     padding: 30px;
     background: #fff;
@@ -1689,7 +1689,7 @@ section {
 }
 
 #footer .social-links a:hover {
-    background: #18a369;
+    background: #089b78;
     color: #fff;
     text-decoration: none;
 }

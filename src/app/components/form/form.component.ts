@@ -2,7 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PeticionEstadosPaises, PeticionPaises, PeticionProfecionales } from 'src/app/peticionProfesionales';
 import { RestService } from 'src/app/rest.service';
 import {EstadosPaises, ListaEstadosPaises, ListaPaises, ListaProfecionales, ListaProfesiones} from '../../models/model.interface'
-import { DataService } from '../../services/data.service'
+import { DataService } from '../../services/data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-form',
@@ -76,7 +77,7 @@ export class FormComponent implements OnInit {
     obj.PaisId = this.idPais;
     obj.ProfesionId = this.idProfesion;
     obj.ProvinciaId = this.idprovincia;
-    this.RestService.getProfecionales('http://51.75.55.74:8080/api/usuario/ObtenerPrefesionales', obj).subscribe(respuesta =>{
+    this.RestService.getProfecionales(environment.appUrlBase + '/usuario/ObtenerPrefesionales', obj).subscribe(respuesta =>{
       console.log(respuesta);
       (this.profesionales = respuesta)
   })
@@ -88,7 +89,7 @@ export class FormComponent implements OnInit {
     obj.PaisId = 0;
     obj.ProfesionId = 0;
     obj.ProvinciaId = 0;
-    var res = this.RestService.getPaises('http://51.75.55.74:8080/api/configuracion/ListarPaises', obj).subscribe(respuesta => {
+    var res = this.RestService.getPaises(environment.appUrlBase + '/configuracion/ListarPaises', obj).subscribe(respuesta => {
       (this.paises2 = respuesta)
     }) 
 
@@ -98,14 +99,14 @@ export class FormComponent implements OnInit {
   public loadEstatdos(codigo : string) {
     var obj = new PeticionEstadosPaises();
     obj.codigo = codigo
-    var res = this.RestService.getCiudades('http://51.75.55.74:8080/api/configuracion/ListarEstadosPaises/', obj).subscribe(respuesta => {
+    var res = this.RestService.getCiudades(environment.appUrlBase + '/configuracion/ListarEstadosPaises/', obj).subscribe(respuesta => {
       (this.ciudad = respuesta)
     }) 
 
   }
 
   public loadProfesiones() {
-    var res = this.RestService.getProfesiones('http://51.75.55.74:8080/api/usuario/ObtenerProfesiones').subscribe(respuesta => {
+    var res = this.RestService.getProfesiones(environment.appUrlBase + '/usuario/ObtenerProfesiones').subscribe(respuesta => {
       (this.profesiones = respuesta)
     }) 
 
