@@ -5,8 +5,14 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+@font-face {
+    font-family: montserrat;
+    src: url(../assets/font/Montserrat/Montserrat-Regular.ttf);
+}
+
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "montserrat", montserrat;
     color: #444444;
 }
 
@@ -31,14 +37,14 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family:  montserrat,sans-serif;
+    font-family:  montserrat;
     
 }
 
 .section-title {
     color: #18a369;
     font-weight: bold;
-    font-family:  montserrat,sans-serif;
+    font-family:  montserrat;
     font-size: 50px;
     text-shadow: 2px 2px 5px rgb(57, 58, 58);
 }
@@ -47,18 +53,18 @@ h1, h2, h3, h4, h5, h6 {
     color: #070707;
     font-weight: bold;
     text-align: center;
-    font-family:  montserrat,sans-serif;
+    font-family:  montserrat;
 }
 
 .section-subtitle {
     color: #fff;
     font-weight: bold;
-    font-family:  montserrat,sans-serif;
+    font-family:  montserrat;
 }
 
 .name {
     color: rgb(201, 113, 78);
-    font-family:  montserrat,sans-serif;
+    font-family:  montserrat;
     font-weight: bold;
 }
 
