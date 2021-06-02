@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  appUrlBase: 'https://beccapi.beccasoftware.com/api',
+  //appUrlBase: 'https://beccapi.beccasoftware.com/api',
+  appUrlBase: 'https://localhost:44393/api',
 };
 
 /*

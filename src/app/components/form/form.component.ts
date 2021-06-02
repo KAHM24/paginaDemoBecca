@@ -27,8 +27,8 @@ export class FormComponent implements OnInit {
   public idprovincia : number = 0;
   //public profesion! : ListaProfecionales = {};
 
-  @ViewChild('asTitulo') tituloEspecialidad!  : ElementRef;
-  @ViewChild('asEspecialidad') especialidad! : ElementRef;
+  //@ViewChild('asTitulo') tituloEspecialidad!  : ElementRef;
+  //@ViewChild('asEspecialidad') especialidad! : ElementRef;
 
 
   constructor(private dataSvc : DataService, private RestService : RestService) { }
@@ -70,8 +70,9 @@ export class FormComponent implements OnInit {
   }
 
   onSelectUsuario(dominio : String){
-    window.location.href='http://www.beccapp.beccasoftware.com/'+dominio;
+    window.location.href='https://beccapp.beccasoftware.com/'+dominio;
   }
+  
   public loadProfecionales(){
     var obj = new PeticionProfecionales();
     obj.PaisId = this.idPais;
